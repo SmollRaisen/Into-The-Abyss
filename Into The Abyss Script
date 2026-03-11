@@ -1,0 +1,122 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Into The Abyss | SmollHub",
+   LoadingTitle = "SmollHub",
+   LoadingSubtitle = "by Smoll",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Example Hub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Key | Youtube Hub",
+      Subtitle = "Key System",
+      Note = "Key In Discord Server",
+      FileName = "YoutubeHubKey1", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"test"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("Teleport", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+Rayfield:Notify({
+   Title = "You executed the script",
+   Content = "by Smoll",
+   Duration = 2,
+   Image = 13047715178,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Teleport to Elevator",
+   Callback = function()
+   local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = game:GetService("Workspace").Elevator.Floor.SpawnLocation.CFrame
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Teleport to Artifact",
+   Callback = function()
+   local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = game:GetService("Workspace").Rooms.Artifact.DELETEPARTWHENARTGRAB.CFrame
+   end,
+})
+
+local EspTab = Window:CreateTab("Esp", nil) -- Title, Image
+local EspSection = EspTab:CreateSection("Main")
+
+local Button = EspTab:CreateButton({
+   Name = "Monster Esp",
+   Callback = function()
+   local function Fuckery()
+    local folder = game.Workspace:FindFirstChild("Monsters")
+    if folder then
+        for _, object in ipairs(folder:GetChildren()) do
+            if object:IsA("Model") then
+                if not object:FindFirstChild("Highlight") then
+                    local highlight = Instance.new("Highlight")
+                    highlight.FillColor = Color3.fromRGB(196, 40, 28)
+                    highlight.Parent = object
+                end
+            end
+        end
+    else
+        print("Folder not found!")
+    end
+end
+
+Fuckery()
+
+while true do
+    wait(2)
+    Fuckery()
+end
+   end,
+})
+
+local Button = EspTab:CreateButton({
+   Name = "Item Esp",
+   Callback = function()
+   local function Item()
+    local folder = game.Workspace:FindFirstChild("Scrap")
+    if folder then
+        for _, object in ipairs(folder:GetChildren()) do
+            if object:IsA("Model") then
+                if not object:FindFirstChild("Highlight") then
+                    local highlight = Instance.new("Highlight")
+                    highlight.FillColor = Color3.fromRGB(75, 151, 75)
+                    highlight.Parent = object
+                end
+            end
+        end
+    else
+        print("Folder not found!")
+    end
+end
+
+Item()
+
+while true do
+    wait(2)
+    Item()
+end
+   end,
+})
