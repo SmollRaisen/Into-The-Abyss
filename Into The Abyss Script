@@ -74,13 +74,13 @@ Keybind:Set("t") -- Keybind (string)
 
 local Keybind = MainTab:CreateKeybind({
    Name = "Artifact Teleport",
-   CurrentKeybind = "T",
+   CurrentKeybind = "Y",
    HoldToInteract = false,
    Flag = "Keybind1", -- A flag is the identifier for the configuration file. Make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Keybind)
 local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
 rootPart.CFrame = game:GetService("Workspace").Rooms.Artifact.ArtifactSpawn.Part.CFrame
-Keybind:Set("t") -- Keybind (string)
+Keybind:Set("y") -- Keybind (string)
    end,
 })
 
