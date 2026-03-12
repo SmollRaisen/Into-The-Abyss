@@ -61,7 +61,7 @@ rootPart.CFrame = game:GetService("Workspace").Rooms.Artifact.DELETEPARTWHENARTG
 })
 
 local EspTab = Window:CreateTab("Esp", nil) -- Title, Image
-local EspSection = EspTab:CreateSection("Main")
+local EspSection = EspTab:CreateSection("Esp")
 
 local Button = EspTab:CreateButton({
    Name = "Monster Esp",
@@ -122,9 +122,9 @@ end
 })
 
 local MiscTab = Window:CreateTab("Misc", nil) -- Title, Image
-local MiscSection = MiscTab:CreateSection("Main")
+local MiscSection = MiscTab:CreateSection("Misc")
 
-local Button = MainTab:CreateButton({
+local Button = EspTab:CreateButton({
    Name = "Teleport to Elevator",
    Callback = function()
 if not _G.FullBrightExecuted then
