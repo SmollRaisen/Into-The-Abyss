@@ -56,7 +56,7 @@ local Button = MainTab:CreateButton({
    Name = "Teleport to Artifact",
    Callback = function()
    local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-rootPart.CFrame = game:GetService("Workspace").Rooms.Artifact.ArtifactSpawn.CFrame
+rootPart.CFrame = game:GetService("Workspace").Rooms.Artifact.ArtifactSpawn.Part.CFrame
    end,
 })
 
