@@ -60,6 +60,17 @@ rootPart.CFrame = game:GetService("Workspace").Rooms.Artifact.ArtifactSpawn.Part
    end,
 })
 
+local Keybind = MainTab:CreateKeybind({
+   Name = "Artifact",
+   CurrentKeybind = "P",
+   HoldToInteract = false,
+   Flag = "Keybind1", -- A flag is the identifier for the configuration file. Make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = game:GetService("Workspace").Rooms.Artifact.ArtifactSpawn.Part.CFrame
+   end,
+})
+
 local EspTab = Window:CreateTab("Esp", nil) -- Title, Image
 local EspSection = EspTab:CreateSection("Esp")
 
@@ -124,7 +135,7 @@ end
 local MiscTab = Window:CreateTab("Misc", nil) -- Title, Image
 local MiscSection = MiscTab:CreateSection("Misc")
 
-local Button = EspTab:CreateButton({
+local Button = MiscTab:CreateButton({
    Name = "Teleport to Elevator",
    Callback = function()
 if not _G.FullBrightExecuted then
